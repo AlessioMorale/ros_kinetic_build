@@ -1,0 +1,27 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Merge and Update",
+            "type": "shell",
+            "command": "wstool merge -t src kinetic-desktop-full-wet.rosinstall && wstool update -t src -j8",
+            "problemMatcher": []
+        },
+        {
+            "label": "Resolve deps",
+            "type": "shell",
+            "command": "rosdep install --from-paths src --ignore-src --rosdistro kinetic -y",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release",
+            "problemMatcher": [
+                "$$catkin-gcc"
+            ]
+        }
+    ]
+}

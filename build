@@ -1,5 +1,5 @@
 if [ ! -f ./src/.rosinstall ]; then
-    wstool init -j8 src kinetic-robot-wet.rosinstall
+    wstool init -j8 src kinetic-desktop-full-wet.rosinstall
 else
     wstool merge -t src kinetic-desktop-full-wet.rosinstall
     wstool update -t src -j8
